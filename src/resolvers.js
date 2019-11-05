@@ -1,21 +1,21 @@
 const channels = [{
   id: 1,
-  name: 'Sony TV',
+  name: 'Republic TV',
 }, {
   id: 2,
-  name: 'Zee TV',
+  name: 'ABP News',
 }, {
   id: 3,
-  name: 'Republic News',
+  name: 'Sudarshan News',
 }, {
   id: 4,
-  name: 'Bhakti Channel',
+  name: 'India TV',
 }, {
   id: 5,
-  name: 'Sanskar TV',
+  name: 'Aaj Tak - Sabse Tez',
 }, {
   id: 6,
-  name: 'Rambharose TV',
+  name: 'News 18',
 }];
 
 let nextId = 7;
