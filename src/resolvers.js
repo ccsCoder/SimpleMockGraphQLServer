@@ -1,3 +1,8 @@
+import { PubSub } from 'apollo-server-express';
+const CHANNEL_ADDED = 'channelAdded';
+
+const pubsub = new PubSub();
+
 const channels = [{
   id: 1,
   name: 'Republic TV',
@@ -33,7 +38,15 @@ export const resolvers = {
     addChannel: (root, args) => {
       const newChannel = { id: nextId++, name: args.name };
       channels.push(newChannel);
+      pubsub.publish(CHANNEL_ADDED, {
+          [CHANNEL_ADDED]: args.name
+      });
       return newChannel;
     },
-  },
+    },
+  Subscription: {
+    channelAdded: {
+        subscribe: () => pubsub.asyncIterator(CHANNEL_ADDED),
+    }
+  }
 };
